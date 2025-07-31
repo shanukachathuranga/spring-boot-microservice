@@ -1,0 +1,18 @@
+# Eureka client configuration for service discovery
+eureka:
+  instance:
+    # Hostname where this service instance will be registered
+    hostname: localhost
+  client:
+    service-url:
+      # URL of the Eureka server where this service will register itself
+      # Allows other services to discover this service through Eureka
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+
+# Spring Cloud configuration
+spring:
+  cloud:
+    config:
+      # Prevents Config Server from overriding system properties
+      # Ensures local system properties take precedence over remote config
+      override.system-properties: false

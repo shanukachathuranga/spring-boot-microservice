@@ -12,19 +12,23 @@ public class GatewayConfig {
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder){
         return builder.routes()
                 .route("account-service",
-                        r -> r.path("/api/v1/account/**")
+                        r -> r.path("/api/v1/accounts/**")
                                 .uri("lb:http://ACCOUNT-SERVICE")
                 )
                 .route("product-service",
-                        r -> r.path("/api/v1/product/**")
+                        r -> r.path("/api/v1/products/**")
                                 .uri("lb:http://PRODUCT-SERVICE")
                         )
+                .route("product-service",
+                        r -> r.path("/api/v1/categories/**")
+                                .uri("lb:http://PRODUCT-SERVICE")
+                )
                 .route("order-service",
-                        r -> r.path("/api/v1/order/**")
+                        r -> r.path("/api/v1/orders/**")
                                 .uri("lb:http://ORDER-SERVICE")
                 )
                 .route("payment-service",
-                        r -> r.path("/api/v1/payment/**")
+                        r -> r.path("/api/v1/payments/**")
                                 .uri("lb:http://PAYMENT-SERVICE")
                         )
                 .build();
