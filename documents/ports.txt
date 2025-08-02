@@ -1,1 +1,8 @@
 config-server - 8888
+eureka-service-registry - 8761
+gateway-service - 8222
+account-service - 8090
+product-service - 9040
+order-service - 9060
+payment-service - 9080
+postgres - 5432
